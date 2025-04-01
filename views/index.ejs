@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Artesanato</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <img src="/public/image/banner.png" alt="">
+        </div>
+    </header>
+
+    <section class="benefits">
+        <div class="card">
+            <i class="icon">🚚</i>
+            <h2>Entrega Garantida</h2>
+        </div>
+        <div class="card">
+            <i class="icon">💳</i>
+            <h2>Pague Parcelado</h2>
+        </div>
+        <div class="card">
+            <i class="icon">🔒</i>
+            <h2>Loja 1000% Segura</h2>
+        </div>
+        <div class="card">
+            <i class="icon">⚡</i>
+            <h2>Envio Imediato</h2>
+        </div>
+    </section>
+
+    <div class="container">
+        <h1>Produtos</h1>
+        <div class="product-slider">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="product-cards">
+                <% cadastros.forEach(function(p) { %>
+                    <div class="card">
+                        <div class="card-body">
+                            <p><%= p.nome %></p>
+                            <img src="/uploads/<%= p.imagem %>" alt="<%= p.nome %>" style="width: 100px; height: 100px;"/>
+                            <p><%= p.descricao %></p>
+                            <p><%= p.preco %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <a href="/cadastrar" class="btn btn-primary">Cadastrar</a>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
